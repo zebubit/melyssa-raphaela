@@ -54,7 +54,7 @@ nav .nlinks a{transition:color .25s}nav .nlinks a:hover{color:var(--ink)}
 /* ---------- HERO ---------- */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;}
 .hero-stage{position:absolute;inset:0;perspective:1400px;will-change:transform}
-.hero-photo{position:absolute;inset:-6%;background:url('assets/hero.jpg') center 26% / cover no-repeat;
+.hero-photo{position:absolute;inset:-6%;background:url('assets/hero-poster.jpg') center center / cover no-repeat;
   transform-style:preserve-3d;will-change:transform;}
 /* hero em VÍDEO (plug and play): some assets/hero.mp4 na pasta e o JS ativa sozinho.
    Enquanto não existir, fica a foto. object-fit cover serve vídeo vertical ou horizontal. */
@@ -145,8 +145,18 @@ footer .copy a{color:var(--magenta)}
 .ecard .k{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:10px}
 .ecard h3{font-family:'Bricolage Grotesque';font-weight:800;font-size:30px;text-transform:uppercase;line-height:1;margin-bottom:10px}
 .ecard p{color:var(--muted);font-size:14px;line-height:1.5;margin-bottom:14px}
-.ecard .go{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);transition:.25s}
-.ecard:hover .go{color:var(--magenta);gap:12px}
+.ecard .go{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#fff;
+  padding:9px 17px;border-radius:100px;background:rgba(255,45,135,.18);border:1px solid rgba(255,45,135,.6);
+  transition:background .25s,gap .25s;animation:goPulse 1.7s ease-in-out infinite;will-change:transform,box-shadow}
+.ecards .ecard:nth-child(2) .go{animation-delay:.55s}
+.ecards .ecard:nth-child(3) .go{animation-delay:1.1s}
+.ecard:hover .go{color:#fff;gap:13px;background:var(--magenta);border-color:var(--magenta);animation:none;
+  box-shadow:0 0 26px 4px rgba(255,45,135,.6)}
+@keyframes goPulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,135,.5)}
+  50%{transform:scale(1.05);box-shadow:0 0 22px 5px rgba(255,45,135,.55)}
+}
+@media(prefers-reduced-motion:reduce){.ecard .go{animation:none}}
 
 /* ---------- GALERIA ---------- */
 .gallery{padding:110px 0;background:var(--bg2)}
@@ -188,7 +198,7 @@ footer .copy a{color:var(--magenta)}
 <header class="hero" id="top">
   <div class="hero-stage" id="stage">
     <div class="hero-photo" id="heroPhoto"></div>
-    <video id="heroVideo" class="hero-video" muted loop playsinline preload="none" poster="assets/hero.jpg"></video>
+    <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" src="assets/hero.mp4"></video>
   </div>
   <div class="hero-glow" id="heroGlow"></div>
   <div class="hero-grade"></div>
@@ -356,13 +366,10 @@ addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
    Mudo, loop, sem competir com o player de música. */
 (function(){
   var v=document.getElementById('heroVideo'); if(!v) return;
-  var src='assets/hero.mp4';
-  fetch(src,{method:'HEAD'}).then(function(r){
-    if(!r.ok){ v.remove(); return; }
-    v.src=src; v.load();
-    v.addEventListener('loadeddata',function(){ v.classList.add('on'); v.play().catch(function(){}); });
-    v.addEventListener('error',function(){ v.remove(); });
-  }).catch(function(){ v.remove(); }); // file:// ou arquivo ausente: mantém a foto
+  function show(){ v.classList.add('on'); v.play().catch(function(){}); }
+  if(v.readyState>=2) show(); else v.addEventListener('loadeddata',show);
+  // se o vídeo falhar (ex: file:// local), some ele e mantém o poster/foto
+  v.addEventListener('error',function(){ v.classList.remove('on'); });
 })();
 
 /* pausa a música ao dar play no vídeo "Assista a Melyssa" (pra o som não competir) */
