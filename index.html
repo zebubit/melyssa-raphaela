@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Melyssa Raphaela · Cantora</title>
+<meta name="description" content="Melyssa Raphaela — de menina prodígio a uma das novas vozes da música. Ouça, assista e acompanhe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="premium.css">
+<style>
+:root{
+  --bg:#08060c;
+  --bg2:#0d0a14;
+  --ink:#f5eef3;
+  --muted:#d2c8cf;
+  --magenta:#ff2d87;
+  --magenta-deep:#c2126b;
+  --glow:rgba(255,45,135,.55);
+  --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+.display{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:.95;letter-spacing:-.02em}
+
+/* ---------- LOADER ---------- */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:200;display:grid;place-items:center;transition:opacity .8s ease;}
+#loader.hide{opacity:0;pointer-events:none}
+#loader .l-name{font-family:'Bricolage Grotesque';font-weight:800;font-size:14px;letter-spacing:.5em;color:var(--magenta);text-transform:uppercase;opacity:.9}
+#loader .l-bar{width:140px;height:2px;background:rgba(255,255,255,.12);margin-top:18px;border-radius:2px;overflow:hidden}
+#loader .l-fill{height:100%;width:0;background:var(--magenta);box-shadow:0 0 14px var(--glow);transition:width .25s ease}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;transition:background .4s ease,backdrop-filter .4s ease,padding .4s ease;}
+nav.scrolled{background:rgba(8,6,12,.6);backdrop-filter:blur(14px);padding:13px 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+nav .logo{font-family:'Bricolage Grotesque';font-weight:800;letter-spacing:.04em;font-size:18px}
+nav .logo b{color:var(--magenta)}
+nav .nlinks{display:flex;gap:26px;font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--muted)}
+nav .nlinks a{transition:color .25s}nav .nlinks a:hover{color:var(--ink)}
+@media(max-width:680px){
+  nav{flex-wrap:wrap;padding:12px 16px}
+  nav .nlinks{width:100%;justify-content:center;gap:8px 16px;font-size:12px;flex-wrap:wrap;margin-top:8px}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;}
+.hero-stage{position:absolute;inset:0;perspective:1400px;will-change:transform}
+.hero-photo{position:absolute;inset:-6%;background:url('assets/hero.jpg') center 26% / cover no-repeat;
+  transform-style:preserve-3d;will-change:transform;}
+/* hero em VÍDEO (plug and play): some assets/hero.mp4 na pasta e o JS ativa sozinho.
+   Enquanto não existir, fica a foto. object-fit cover serve vídeo vertical ou horizontal. */
+.hero-video{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;z-index:1;
+  opacity:0;transition:opacity .9s ease;pointer-events:none}
+.hero-video.on{opacity:1}
+.hero-grade{position:absolute;inset:0;
+  background:
+    radial-gradient(120% 80% at 70% 18%, rgba(255,45,135,.16), transparent 55%),
+    linear-gradient(180deg, rgba(8,6,12,.35) 0%, rgba(8,6,12,0) 30%, rgba(8,6,12,.55) 72%, var(--bg) 100%);
+  z-index:2;}
+.hero-glow{position:absolute;left:50%;top:30%;width:80vw;height:80vw;transform:translate(-50%,-50%);
+  background:radial-gradient(circle, var(--glow), transparent 60%);filter:blur(40px);opacity:.5;z-index:1;will-change:transform}
+.hero-content{position:relative;z-index:5;width:100%;padding-bottom:9vh;will-change:transform}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--magenta);font-weight:600;margin-bottom:18px}
+.hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--magenta);display:inline-block}
+.hero h1{font-size:clamp(48px,11vw,150px);text-transform:uppercase}
+.hero h1 .l2{color:transparent;-webkit-text-stroke:1.5px var(--magenta);}
+.hero .tag{margin-top:22px;max-width:30ch;font-size:clamp(15px,2vw,19px);color:#efe6ec;line-height:1.6;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+.hero .cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:100px;font-weight:600;font-size:14px;
+  letter-spacing:.02em;transition:transform .2s,box-shadow .3s,background .3s;cursor:pointer;border:1px solid transparent}
+.btn-pri{background:var(--magenta);color:#fff;box-shadow:0 8px 30px -8px var(--glow)}
+.btn-pri:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px var(--glow)}
+.btn-gho{border-color:rgba(255,255,255,.22);color:var(--ink)}
+.btn-gho:hover{border-color:var(--magenta);color:var(--magenta)}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:6;display:flex;flex-direction:column;
+  align-items:center;gap:8px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.3);border-radius:14px;position:relative}
+.scrollcue .mouse::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--magenta);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}60%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ---------- SEÇÃO AGORA ---------- */
+.now{position:relative;padding:120px 0;background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.now .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media(max-width:820px){.now .grid{grid-template-columns:1fr;gap:40px}}
+.now .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:20px}
+.now h2{font-size:clamp(34px,5vw,62px);text-transform:uppercase;margin-bottom:24px}
+.now h2 em{font-style:normal;color:var(--magenta)}
+.now p{color:var(--muted);line-height:1.8;font-size:17px;max-width:46ch;margin-bottom:16px}
+.now .photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.now .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,6,12,.5));}
+.now .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.now .photo .ring{position:absolute;inset:0;border:1px solid rgba(255,45,135,.4);border-radius:22px;z-index:2}
+
+/* ---------- VÍDEO (placeholder) ---------- */
+.videosec{padding:120px 0;text-align:center}
+.videosec .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:18px}
+.videosec h2{font-size:clamp(30px,4.5vw,52px);text-transform:uppercase;margin-bottom:14px}
+.videosec .vsub{color:var(--muted);max-width:46ch;margin:0 auto 42px;line-height:1.7;font-size:15px}
+.vframe{position:relative;width:min(360px,86vw);margin:0 auto;aspect-ratio:9/16;border-radius:22px;overflow:hidden;
+  box-shadow:0 30px 90px -30px rgba(0,0,0,.85);border:1px solid rgba(255,45,135,.4)}
+.vframe video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+
+/* ---------- FOOTER ---------- */
+footer{padding:80px 0 50px;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+footer .fname{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(30px,6vw,68px);text-transform:uppercase;letter-spacing:-.02em;margin-bottom:24px}
+footer .fname span{color:var(--magenta)}
+footer .social{display:flex;gap:18px;justify-content:center;margin-bottom:30px;flex-wrap:wrap}
+footer .social a{padding:11px 22px;border:1px solid rgba(255,255,255,.16);border-radius:100px;font-size:13px;font-weight:500;color:var(--muted);transition:.25s}
+footer .social a:hover{border-color:var(--magenta);color:var(--magenta)}
+footer .copy{font-size:12px;color:#6b5f6a;letter-spacing:.02em}
+footer .copy a{color:var(--magenta)}
+
+/* música flutuante */
+#music{position:fixed;right:18px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;background:rgba(255,45,135,.16);
+  border:1px solid rgba(255,45,135,.4);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;transition:.25s}
+#music:hover{background:rgba(255,45,135,.3)}
+#music .bars{display:flex;gap:2.5px;align-items:flex-end;height:16px}
+#music .bars i{width:2.5px;background:var(--magenta);height:5px;border-radius:2px}
+#music.playing .bars i{animation:eq .9s ease-in-out infinite}
+#music.playing .bars i:nth-child(2){animation-delay:.2s}#music.playing .bars i:nth-child(3){animation-delay:.4s}#music.playing .bars i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+
+/* ---------- EXPLORE (cards de destaque pras páginas) ---------- */
+.explore{padding:100px 0;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.explore .head{text-align:center;margin-bottom:50px}
+.explore .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:16px}
+.explore h2{font-size:clamp(30px,4.5vw,56px);text-transform:uppercase}
+.ecards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:820px){.ecards{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+.ecard{position:relative;display:block;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 80px -34px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.07)}
+.ecard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ecard:hover img{transform:scale(1.06)}
+.ecard .ov{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,6,12,.1) 28%,rgba(8,6,12,.62) 66%,rgba(8,6,12,.95))}
+.ecard .ct{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px}
+.ecard .k{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:10px}
+.ecard h3{font-family:'Bricolage Grotesque';font-weight:800;font-size:30px;text-transform:uppercase;line-height:1;margin-bottom:10px}
+.ecard p{color:var(--muted);font-size:14px;line-height:1.5;margin-bottom:14px}
+.ecard .go{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);transition:.25s}
+.ecard:hover .go{color:var(--magenta);gap:12px}
+
+/* ---------- GALERIA ---------- */
+.gallery{padding:110px 0;background:var(--bg2)}
+.gallery .head{text-align:center;margin-bottom:50px}
+.gallery .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:16px}
+.gallery h2{font-size:clamp(32px,5vw,58px);text-transform:uppercase}
+.masonry{columns:3;column-gap:16px}
+@media(max-width:820px){.masonry{columns:2}}
+@media(max-width:520px){.masonry{columns:1}}
+.gitem{break-inside:avoid;margin-bottom:16px;position:relative;border-radius:16px;overflow:hidden;cursor:pointer}
+.gitem img{width:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(255,45,135,.4));opacity:0;transition:.4s}
+.gitem:hover img{transform:scale(1.06)}
+.gitem:hover::after{opacity:1}
+#lb{position:fixed;inset:0;z-index:150;background:rgba(5,4,8,.94);backdrop-filter:blur(6px);display:none;place-items:center;padding:30px}
+#lb.on{display:grid}
+#lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 90px -20px #000}
+#lb .x{position:absolute;top:20px;right:26px;font-size:34px;color:var(--ink);cursor:pointer;line-height:1}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div id="loader"><div style="text-align:center"><div class="l-name">Melyssa Raphaela</div><div class="l-bar"><div class="l-fill" id="lfill"></div></div></div></div>
+
+<nav id="nav">
+  <div class="logo">MELYSSA<b>.</b></div>
+  <div class="nlinks">
+    <a href="#agora">A Artista</a>
+    <a href="historia.html">A História</a>
+    <a href="projeto.html">O Projeto</a>
+    <a href="patrocinio.html">Patrocínio</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-stage" id="stage">
+    <div class="hero-photo" id="heroPhoto"></div>
+    <video id="heroVideo" class="hero-video" muted loop playsinline preload="none" poster="assets/hero.jpg"></video>
+  </div>
+  <div class="hero-glow" id="heroGlow"></div>
+  <div class="hero-grade"></div>
+  <div class="wrap hero-content" id="heroContent">
+    <span class="hero-eyebrow">Cantora · Compositora</span>
+    <h1 class="display"><span class="l1">Melyssa</span><br><span class="l2">Raphaela</span></h1>
+    <p class="tag">De menina prodígio a uma das novas vozes que cresceram com você. Sinta a história em cada acorde.</p>
+    <div class="cta">
+      <a class="btn btn-pri" id="ouvirBtn" role="button" tabindex="0" aria-label="Ouvir a música da Melyssa">▸ Ouvir agora</a>
+      <a class="btn btn-gho" href="#agora">Conhecer a artista</a>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div><span>role</span></div>
+</header>
+
+<section class="now" id="agora">
+  <div class="wrap grid">
+    <div class="reveal">
+      <div class="eyebrow">A nova fase</div>
+      <h2 class="display">De mirim a <em>juvenil</em></h2>
+      <p>A Melyssa começou cantando ainda criança, e o público viu essa voz crescer. Hoje, mais madura, ela traz uma identidade própria: a delicadeza de quem nasceu pra cantar, com a atitude de quem sabe o que veio fazer.</p>
+      <p>Mesmo palco, mesma paixão. Uma artista nova, pronta pra próxima música.</p>
+      <a class="btn btn-pri" href="#contato" style="margin-top:14px">Acompanhar a Melyssa</a>
+    </div>
+    <div class="reveal photo">
+      <div class="ring"></div>
+      <img src="assets/melyssa-mic.jpg" alt="Melyssa Raphaela">
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Explore</div>
+      <h2 class="display">Conheça a Melyssa</h2>
+    </div>
+    <div class="ecards reveal">
+      <a class="ecard" href="historia.html">
+        <img src="assets/pb.jpg" alt="Melyssa Raphaela retrato" loading="lazy">
+        <div class="ov"></div>
+        <div class="ct">
+          <div class="k">A jornada</div>
+          <h3>A História</h3>
+          <p>Do violão rosa de strass aos palcos. A trajetória dela, contada em capítulos.</p>
+          <span class="go">Ver a história →</span>
+        </div>
+      </a>
+      <a class="ecard" href="projeto.html">
+        <img src="assets/escola.jpg" alt="Melyssa cantando nas escolas" loading="lazy">
+        <div class="ov"></div>
+        <div class="ct">
+          <div class="k">Projeto social</div>
+          <h3>Música nas Escolas</h3>
+          <p>Ela leva música e alegria pras crianças. Mais de 3000 já foram encantadas.</p>
+          <span class="go">Conhecer o projeto →</span>
+        </div>
+      </a>
+      <a class="ecard" href="patrocinio.html">
+        <img src="assets/live.jpg" alt="Melyssa Raphaela no palco" loading="lazy">
+        <div class="ov"></div>
+        <div class="ct">
+          <div class="k">Seja um patrocinador</div>
+          <h3>Patrocínio</h3>
+          <p>Invista numa nova voz e apoie a causa social. Ideal pra marcas e apoiadores.</p>
+          <span class="go">Quero apoiar →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Galeria</div>
+      <h2 class="display">Momentos</h2>
+    </div>
+    <div class="masonry reveal">
+      <div class="gitem"><img src="assets/gal-1.jpg" alt="Melyssa Raphaela cantando ao vivo" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-2.jpg" alt="Melyssa Raphaela no palco" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-3.jpg" alt="Melyssa Raphaela de chapéu no show" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-4.jpg" alt="Melyssa Raphaela cantando" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-5.jpg" alt="Melyssa Raphaela" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-6.jpg" alt="Melyssa Raphaela no estúdio" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-7.jpg" alt="Melyssa Raphaela no palco" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="videosec" id="video">
+  <div class="wrap">
+    <div class="eyebrow reveal">Em movimento</div>
+    <h2 class="display reveal">Assista a Melyssa</h2>
+    <p class="vsub reveal">Um pedaço de um show dela, no palco. O vídeo completo chega em breve no YouTube.</p>
+    <div class="vframe reveal">
+      <video id="watchVideo" controls playsinline preload="none" poster="assets/watch-poster.jpg" src="assets/watch.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="fname display">VEM COM A <span>MELYSSA</span></div>
+    <div class="social">
+      <a href="https://instagram.com/melyssaraphaela" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://tiktok.com/@melyssaraphaela" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20falar%20sobre%20a%20agenda%20de%20shows%20dela.%20Pode%20me%20passar%20valores%20e%20disponibilidade%3F" target="_blank" rel="noopener">Shows · Monica</a>
+    </div>
+    <div class="copy">Desenvolvido por <a href="https://zebubit.com.br" target="_blank" rel="noopener">Zebubit Assessoria</a></div>
+  </div>
+</footer>
+
+<div id="lb"><span class="x">&times;</span><img src="" alt="Foto da Melyssa"></div>
+<div id="music" title="Tocar música" role="button" tabindex="0" aria-label="Tocar ou pausar a música"><div class="bars"><i></i><i></i><i></i><i></i></div></div>
+<audio id="audio" src="assets/musica.mp3" loop preload="auto"></audio>
+
+<script>
+/* ===== Loader (preload da foto do hero) ===== */
+(function(){
+  const fill=document.getElementById('lfill'), loader=document.getElementById('loader');
+  let p=0; const tick=setInterval(()=>{p=Math.min(p+Math.random()*18,90);fill.style.width=p+'%';},120);
+  const img=new Image(); img.src='assets/hero.jpg';
+  function done(){clearInterval(tick);fill.style.width='100%';setTimeout(()=>{loader.classList.add('hide');document.body.classList.add('loaded')},350);}
+  img.complete?done():(img.onload=done,img.onerror=done);
+  setTimeout(done,4000); // failsafe
+})();
+
+/* ===== Nav scrolled ===== */
+const nav=document.getElementById('nav');
+
+/* ===== HERO: parallax no scroll + tilt 3D no mouse (RAF + ticking) ===== */
+const stage=document.getElementById('stage'), photo=document.getElementById('heroPhoto'),
+      glow=document.getElementById('heroGlow'), content=document.getElementById('heroContent');
+let scrollY=0, mx=0, my=0, ticking=false;
+function render(){
+  // parallax do scroll (profundidade): foto sobe devagar e dá zoom; texto sobe mais rápido e some
+  const h=window.innerHeight, prog=Math.min(scrollY/h,1);
+  photo.style.transform=`translateY(${scrollY*0.28}px) scale(${1+prog*0.12})`;
+  glow.style.transform=`translate(-50%,calc(-50% + ${scrollY*0.12}px))`;
+  content.style.transform=`translateY(${scrollY*-0.18}px)`;
+  content.style.opacity=`${1-prog*1.1}`;
+  // tilt 3D seguindo o mouse (sutil)
+  stage.style.transform=`rotateY(${mx*5}deg) rotateX(${ -my*5 }deg) scale(1.04)`;
+  nav.classList.toggle('scrolled', scrollY>40);
+  ticking=false;
+}
+function queue(){ if(!ticking){ ticking=true; requestAnimationFrame(render); } }
+addEventListener('scroll',()=>{ scrollY=window.scrollY||window.pageYOffset; queue(); },{passive:true});
+addEventListener('mousemove',(e)=>{ mx=(e.clientX/innerWidth-.5)*2; my=(e.clientY/innerHeight-.5)*2; queue(); },{passive:true});
+render();
+
+/* ===== Reveals ===== */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== Lightbox da galeria ===== */
+const lb=document.getElementById('lb'), lbimg=lb.querySelector('img');
+document.querySelectorAll('.gitem img').forEach(im=>im.addEventListener('click',()=>{lbimg.src=im.src;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+
+/* ===== HERO em vídeo (plug and play) =====
+   Se existir assets/hero.mp4, ativa o vídeo por cima da foto. Senão, fica a foto.
+   Mudo, loop, sem competir com o player de música. */
+(function(){
+  var v=document.getElementById('heroVideo'); if(!v) return;
+  var src='assets/hero.mp4';
+  fetch(src,{method:'HEAD'}).then(function(r){
+    if(!r.ok){ v.remove(); return; }
+    v.src=src; v.load();
+    v.addEventListener('loadeddata',function(){ v.classList.add('on'); v.play().catch(function(){}); });
+    v.addEventListener('error',function(){ v.remove(); });
+  }).catch(function(){ v.remove(); }); // file:// ou arquivo ausente: mantém a foto
+})();
+
+/* pausa a música ao dar play no vídeo "Assista a Melyssa" (pra o som não competir) */
+(function(){
+  var wv=document.getElementById('watchVideo'); if(!wv) return;
+  wv.addEventListener('play',function(){
+    var a=document.getElementById('audio');
+    if(a&&!a.paused){ a.pause(); var m=document.getElementById('music'); if(m) m.classList.remove('playing'); }
+  });
+})();
+
+/* música controlada pelo player.js compartilhado (segue entre as páginas) */
+</script>
+<script src="premium.js"></script>
+<script src="player.js"></script>
+</body>
+</html>

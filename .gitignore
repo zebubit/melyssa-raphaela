@@ -1,0 +1,7 @@
+# fontes pesadas e backups — não publicar
+assets/videos/Melyssa*.mp4
+assets/videos/RPReplay*
+assets/videos/escola-1.mp4
+assets/hero-vertical-bkp.mp4
+.DS_Store
+**/.DS_Store
