@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposta de Apresentação Musical · Melyssa Raphaela</title>
+<meta name="description" content="Proposta de show da cantora Melyssa Raphaela para eventos municipais, festas da cidade e datas comemorativas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="premium.css">
+<style>
+:root{--bg:#08060c;--bg2:#0d0a14;--ink:#f5eef3;--muted:#cfc5cd;--magenta:#ff2d87;--glow:rgba(255,45,135,.55);--maxw:900px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+.display{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:1;letter-spacing:-.02em}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(8,6,12,.6);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:18px}nav .logo b{color:var(--magenta)}
+nav .nlinks{display:flex;gap:20px;font-size:13px;font-weight:500;color:var(--muted)}
+nav .nlinks a{transition:.25s}nav .nlinks a:hover,nav .nlinks a.on{color:var(--magenta)}
+@media(max-width:680px){nav{flex-wrap:wrap;padding:12px 16px}nav .nlinks{width:100%;justify-content:center;gap:8px 14px;font-size:12px;flex-wrap:wrap;margin-top:8px}}
+
+/* capa */
+.cover{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+.cover .bg{position:absolute;inset:0;background:url('assets/hero-live.jpg') center 24%/cover no-repeat}
+.cover .grade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,12,.55),rgba(8,6,12,.2) 34%,rgba(8,6,12,.8) 78%,var(--bg)),radial-gradient(90% 60% at 72% 18%,rgba(255,45,135,.16),transparent 60%)}
+.cover .inner{position:relative;z-index:2;width:100%;padding-bottom:7vh}
+.cover .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:16px}
+.cover .eyebrow::before{content:"";width:28px;height:1px;background:var(--magenta)}
+.cover h1{font-size:clamp(34px,6.5vw,74px);text-transform:uppercase;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.cover h1 span{color:var(--magenta)}
+.cover .who{margin-top:16px;font-size:clamp(15px,2vw,19px);color:#efe6ec;max-width:44ch;line-height:1.6;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+
+/* bloco destinatário editável */
+.addr{margin:-40px auto 0;position:relative;z-index:5}
+.addr .card{background:var(--bg2);border:1px solid rgba(255,45,135,.3);border-radius:18px;padding:26px 28px;box-shadow:0 30px 80px -40px #000}
+.addr .row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 30px}
+@media(max-width:560px){.addr .row{grid-template-columns:1fr}}
+.addr .f{font-size:14px;color:var(--muted)}
+.addr .f b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta);font-weight:700;margin-bottom:4px}
+.fill{color:var(--ink);background:rgba(255,45,135,.1);border:1px dashed rgba(255,45,135,.4);border-radius:6px;padding:2px 8px}
+
+/* seções */
+section.blk{padding:64px 0 0}
+.blk .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.blk h2{font-size:clamp(24px,3.6vw,40px);text-transform:uppercase;margin-bottom:20px}
+.blk p{color:var(--muted);line-height:1.8;font-size:16px;margin-bottom:16px;max-width:66ch}
+.blk p .em{color:#fff;font-weight:600}
+
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 6px}
+.stats .s{flex:1;min-width:150px;padding:22px 18px;border-radius:16px;background:linear-gradient(180deg,rgba(255,45,135,.08),transparent);border:1px solid rgba(255,45,135,.28);text-align:center}
+.stats .n{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(26px,4vw,40px);color:var(--magenta);line-height:1}
+.stats .l{font-size:12px;color:var(--muted);margin-top:8px}
+
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+@media(max-width:640px){.feat{grid-template-columns:1fr}}
+.feat .c{padding:24px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);border:1px solid rgba(255,255,255,.08)}
+.feat .c h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.feat .c h3 .ic{width:34px;height:34px;border-radius:9px;background:rgba(255,45,135,.14);border:1px solid rgba(255,45,135,.4);display:grid;place-items:center;flex:none}
+.feat .c h3 .ic svg{width:18px;height:18px;stroke:var(--magenta);fill:none;stroke-width:1.8}
+.feat .c p{color:var(--muted);font-size:14px;line-height:1.6;margin:0;max-width:none}
+
+.check{list-style:none;margin:8px 0 0}
+.check li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);color:var(--ink);font-size:15px;line-height:1.5}
+.check li svg{flex:none;width:20px;height:20px;stroke:var(--magenta);fill:none;stroke-width:2;margin-top:2px}
+.check li b{color:#fff}
+
+.photo-strip{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0 4px}
+@media(max-width:560px){.photo-strip{grid-template-columns:1fr}}
+.photo-strip .ph{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/10;border:1px solid rgba(255,45,135,.2);box-shadow:0 24px 60px -34px #000}
+.photo-strip .ph img{width:100%;height:100%;object-fit:cover;display:block}
+
+.invest{margin-top:20px;padding:26px 28px;border-radius:18px;background:radial-gradient(circle at 20% 0,rgba(255,45,135,.12),var(--bg2) 70%);border:1px solid rgba(255,45,135,.3)}
+.invest p{color:var(--muted);font-size:15px;line-height:1.7;margin:0;max-width:none}
+.invest p b{color:#fff}
+
+/* cta final */
+.pcta{padding:60px 0 110px;text-align:center}
+.pcta .box{max-width:760px;margin:44px auto 0;padding:52px 30px;border-radius:26px;background:radial-gradient(circle at 50% 0,rgba(255,45,135,.16),transparent 65%);border:1px solid rgba(255,45,135,.3)}
+.pcta h2{font-size:clamp(24px,4vw,44px);text-transform:uppercase;margin-bottom:14px}
+.pcta h2 span{color:var(--magenta)}
+.pcta p{color:var(--muted);max-width:46ch;margin:0 auto 28px;line-height:1.7;font-size:15px}
+.pcta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;cursor:pointer;transition:transform .2s,box-shadow .3s,border-color .3s,color .3s;border:1px solid transparent}
+.btn-pri{background:var(--magenta);color:#fff;box-shadow:0 8px 30px -8px var(--glow)}.btn-pri:hover{transform:translateY(-2px);box-shadow:0 14px 44px -8px var(--glow)}
+.btn-gho{border-color:rgba(255,255,255,.22);color:var(--ink)}.btn-gho:hover{border-color:var(--magenta);color:var(--magenta)}
+
+footer{padding:50px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media print{
+  nav,#music,.pcta .row{display:none!important}
+  body{background:#08060c!important;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reveal{opacity:1!important;transform:none!important}
+}
+#music{position:fixed;right:18px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;background:rgba(255,45,135,.16);border:1px solid rgba(255,45,135,.4);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;transition:.25s}
+#music:hover{background:rgba(255,45,135,.3)}
+#music .bars{display:flex;gap:2.5px;align-items:flex-end;height:16px}
+#music .bars i{width:2.5px;background:var(--magenta);height:5px;border-radius:2px}
+#music.playing .bars i{animation:eq .9s ease-in-out infinite}
+#music.playing .bars i:nth-child(2){animation-delay:.2s}#music.playing .bars i:nth-child(3){animation-delay:.4s}#music.playing .bars i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">MELYSSA<b>.</b></a>
+  <div class="nlinks">
+    <a href="index.html">Início</a>
+    <a href="historia.html">A História</a>
+    <a href="projeto.html">O Projeto</a>
+    <a href="patrocinio.html">Patrocínio</a>
+  </div>
+</nav>
+
+<header class="cover">
+  <div class="bg"></div>
+  <div class="grade"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">Proposta de apresentação musical</span>
+    <h1 class="display">Melyssa Raphaela<br>no <span>seu evento</span></h1>
+    <p class="who">Uma nova voz do sertanejo e do country, com banda completa, pra levar música de qualidade e emoção ao público da sua cidade.</p>
+  </div>
+</header>
+
+<div class="wrap addr">
+  <div class="card reveal">
+    <div class="row">
+      <div class="f"><b>Proposta para</b>Prefeitura Municipal de <span class="fill">município</span></div>
+      <div class="f"><b>Aos cuidados de</b><span class="fill">secretaria / responsável</span></div>
+      <div class="f"><b>Evento</b><span class="fill">festa da cidade / aniversário do município / data comemorativa</span></div>
+      <div class="f"><b>Data sugerida</b><span class="fill">dia / mês / ano</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="blk">
+  <div class="wrap reveal">
+    <div class="eyebrow">Quem é a artista</div>
+    <h2 class="display">Uma nova voz que já emociona</h2>
+    <p>A Melyssa Raphaela começou a cantar ainda criança e, aos dezoito anos, já soma uma trajetória sólida nos palcos, com uma base de público fiel que acompanha a carreira dela desde o início. No repertório, o melhor do <span class="em">sertanejo, do country e do sofrência</span>, num show pensado pra família toda, do começo ao fim.</p>
+    <div class="stats">
+      <div class="s"><div class="n">+7</div><div class="l">anos de estrada</div></div>
+      <div class="s"><div class="n">Banda</div><div class="l">completa ao vivo</div></div>
+      <div class="s"><div class="n">Família</div><div class="l">show pra todas as idades</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap reveal">
+    <div class="eyebrow">O espetáculo</div>
+    <h2 class="display">O que sobe no palco</h2>
+    <p>Um show completo e dinâmico, com a Melyssa à frente e uma banda ao vivo (voz, violão, guitarra, baixo, bateria e sanfona). Repertório versátil, do animado ao romântico, que conversa com o público e mantém a energia do início ao fim.</p>
+    <div class="photo-strip">
+      <div class="ph"><img src="assets/banda-banner.jpg" alt="Melyssa Raphaela e a banda no palco" loading="lazy"></div>
+      <div class="ph"><img src="assets/live-profile.jpg" alt="Melyssa Raphaela cantando ao vivo" loading="lazy"></div>
+    </div>
+    <ul class="check">
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Banda completa ao vivo</b>, com estrutura profissional de palco.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Repertório família</b>: sertanejo, country e sucessos que todo mundo canta junto.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Duração e formato flexíveis</b>, ajustados ao seu evento.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>Divulgação nas redes da Melyssa</b>, ampliando o alcance do evento.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap reveal">
+    <div class="eyebrow">O diferencial</div>
+    <h2 class="display">Muito além de um show</h2>
+    <p>A Melyssa mantém um projeto social que leva música e alegria pras crianças das escolas. Levar a artista pra sua cidade é apoiar, junto, uma causa que dá orgulho de estar associado. É cultura com propósito, e uma bela história pra sua gestão contar.</p>
+    <div class="stats">
+      <div class="s"><div class="n">+10</div><div class="l">escolas visitadas</div></div>
+      <div class="s"><div class="n">+3000</div><div class="l">crianças alcançadas</div></div>
+      <div class="s"><div class="n">Social</div><div class="l">cultura com propósito</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap reveal">
+    <div class="eyebrow">Por que contratar</div>
+    <h2 class="display">O que a sua cidade ganha</h2>
+    <div class="feat">
+      <div class="c"><h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v10.5"/><circle cx="9" cy="16" r="3"/><path d="M12 3l7 2"/></svg></span>Música de qualidade</h3><p>Um show ao vivo profissional, com repertório que agrada do jovem ao mais experiente.</p></div>
+      <div class="c"><h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4l9 5-9 5-9-5 9-5zM5 11v5c0 1 3 3 7 3s7-2 7-3v-5"/></svg></span>Valor social</h3><p>O projeto nas escolas agrega uma dimensão cultural e social ao seu evento.</p></div>
+      <div class="c"><h3><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M8 21c0-3 8-3 8 0"/></svg></span>Público família</h3><p>Um espetáculo seguro e alegre, pensado pra reunir a comunidade toda.</p></div>
+      <div class="c"><h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M4 10l8-6 8 6M4 10h16v10"/></svg></span>Alcance digital</h3><p>Divulgação nas redes da artista, dando ainda mais visibilidade ao evento e à cidade.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap reveal">
+    <div class="eyebrow">Estrutura e logística</div>
+    <h2 class="display">Como funciona</h2>
+    <ul class="check">
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>A produção da Melyssa alinha com a equipe da prefeitura todos os detalhes técnicos (som, palco, iluminação e camarim) com antecedência.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Rider técnico e mapa de palco enviados após a confirmação da data, pra facilitar a contratação da estrutura local.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Transporte, hospedagem e alimentação da equipe conforme a distância, tudo combinado de forma transparente na proposta final.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Documentação e nota fiscal em ordem, prontas pra atender aos trâmites da administração pública.</span></li>
+    </ul>
+    <div class="invest">
+      <p><b>Investimento:</b> o cachê é definido conforme a data, a cidade e o formato do evento. Envie os dados no bloco acima e a assessoria retorna com uma proposta formal, com valores e condições, sem compromisso.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <div class="box reveal">
+      <h2 class="display">Vamos levar a Melyssa <span>pra sua cidade?</span></h2>
+      <p>Fale com a assessoria, confirme a disponibilidade da data e receba a proposta formal completa. Estamos à disposição.</p>
+      <div class="row">
+        <a class="btn btn-pri" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Sou%20da%20prefeitura%20e%20tenho%20interesse%20em%20contratar%20a%20Melyssa%20Raphaela%20para%20um%20evento%20do%20munic%C3%ADpio.%20Podemos%20conversar%20sobre%20disponibilidade%20e%20valores%3F" target="_blank" rel="noopener">Falar com a assessoria</a>
+        <a class="btn btn-gho" href="index.html">Conhecer a Melyssa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap copy">Desenvolvido por <a href="https://zebubit.com.br" target="_blank" rel="noopener">Zebubit Assessoria</a></div>
+</footer>
+
+<div id="music" title="Tocar música" role="button" tabindex="0" aria-label="Tocar ou pausar a música"><div class="bars"><i></i><i></i><i></i><i></i></div></div>
+<audio id="audio" src="assets/musica.mp3" loop preload="auto"></audio>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script src="premium.js"></script>
+<script src="player.js"></script>
+</body>
+</html>

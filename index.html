@@ -114,11 +114,24 @@ nav .nlinks a{transition:color .25s}nav .nlinks a:hover{color:var(--ink)}
 footer{padding:80px 0 50px;border-top:1px solid rgba(255,255,255,.07);text-align:center}
 footer .fname{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(30px,6vw,68px);text-transform:uppercase;letter-spacing:-.02em;margin-bottom:24px}
 footer .fname span{color:var(--magenta)}
+footer .ccontact{margin:2px auto 34px}
+footer .clabel{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:18px}
+footer .cwhats{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;border-radius:100px;background:var(--magenta);color:#fff;font-weight:700;font-size:clamp(18px,2.4vw,23px);box-shadow:0 10px 34px -8px var(--glow);transition:transform .2s,box-shadow .3s;animation:goPulse 1.9s ease-in-out infinite;will-change:transform,box-shadow}
+footer .cwhats:hover{transform:translateY(-2px);box-shadow:0 16px 46px -8px var(--glow)}
+footer .cwhats svg{width:24px;height:24px;fill:#fff;flex:none}
+footer .cname{margin-top:14px;font-size:14px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){footer .cwhats{animation:none}}
 footer .social{display:flex;gap:18px;justify-content:center;margin-bottom:30px;flex-wrap:wrap}
 footer .social a{padding:11px 22px;border:1px solid rgba(255,255,255,.16);border-radius:100px;font-size:13px;font-weight:500;color:var(--muted);transition:.25s}
 footer .social a:hover{border-color:var(--magenta);color:var(--magenta)}
 footer .copy{font-size:12px;color:#6b5f6a;letter-spacing:.02em}
 footer .copy a{color:var(--magenta)}
+
+/* notas musicais caindo (camada sutil na frente) */
+#notes{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+#notes .note{position:absolute;top:-8%;color:var(--magenta);opacity:0;font-size:22px;will-change:transform,opacity;animation:fall linear infinite;text-shadow:0 0 10px rgba(255,45,135,.55)}
+@keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:0}12%{opacity:.32}88%{opacity:.32}100%{transform:translateY(108vh) rotate(320deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){#notes{display:none}}
 
 /* música flutuante */
 #music{position:fixed;right:18px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;background:rgba(255,45,135,.16);
@@ -180,6 +193,8 @@ footer .copy a{color:var(--magenta)}
 </style>
 </head>
 <body>
+
+<div id="notes" aria-hidden="true"></div>
 
 <div id="loader"><div style="text-align:center"><div class="l-name">Melyssa Raphaela</div><div class="l-bar"><div class="l-fill" id="lfill"></div></div></div></div>
 
@@ -285,6 +300,8 @@ footer .copy a{color:var(--magenta)}
       <div class="gitem"><img src="assets/gal-5.jpg" alt="Melyssa Raphaela" loading="lazy"></div>
       <div class="gitem"><img src="assets/gal-6.jpg" alt="Melyssa Raphaela no estúdio" loading="lazy"></div>
       <div class="gitem"><img src="assets/gal-7.jpg" alt="Melyssa Raphaela no palco" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-8.jpg" alt="Melyssa criança no palco do Festival de Talentos" loading="lazy"></div>
+      <div class="gitem"><img src="assets/gal-9.jpg" alt="Melyssa criança cantando no festival" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -303,10 +320,17 @@ footer .copy a{color:var(--magenta)}
 <footer id="contato">
   <div class="wrap">
     <div class="fname display">VEM COM A <span>MELYSSA</span></div>
+    <div class="ccontact">
+      <div class="clabel">Contato para shows</div>
+      <a class="cwhats" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20falar%20sobre%20a%20agenda%20de%20shows%20dela.%20Pode%20me%20passar%20valores%20e%20disponibilidade%3F" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a Monica sobre shows da Melyssa">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 10.34c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03 0 1.2.87 2.36.99 2.52.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        (34) 98853-4849
+      </a>
+      <div class="cname">Falar com Monica, assessoria da Melyssa</div>
+    </div>
     <div class="social">
       <a href="https://instagram.com/melyssaraphaela" target="_blank" rel="noopener">Instagram</a>
       <a href="https://tiktok.com/@melyssaraphaela" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20falar%20sobre%20a%20agenda%20de%20shows%20dela.%20Pode%20me%20passar%20valores%20e%20disponibilidade%3F" target="_blank" rel="noopener">Shows · Monica</a>
     </div>
     <div class="copy">Desenvolvido por <a href="https://zebubit.com.br" target="_blank" rel="noopener">Zebubit Assessoria</a></div>
   </div>
@@ -354,6 +378,21 @@ render();
 /* ===== Reveals ===== */
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== Notas musicais caindo ===== */
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var box=document.getElementById('notes'); if(!box) return;
+  var glyphs=['♪','♫','♩','♬'], N=window.innerWidth<680?11:20;
+  for(var i=0;i<N;i++){
+    var s=document.createElement('span'); s.className='note'; s.textContent=glyphs[i%glyphs.length];
+    s.style.left=(Math.random()*100)+'%';
+    s.style.fontSize=(16+Math.random()*18)+'px';
+    s.style.animationDuration=(9+Math.random()*9)+'s';
+    s.style.animationDelay=(-Math.random()*14)+'s';
+    s.style.opacity=1; box.appendChild(s);
+  }
+})();
 
 /* ===== Lightbox da galeria ===== */
 const lb=document.getElementById('lb'), lbimg=lb.querySelector('img');

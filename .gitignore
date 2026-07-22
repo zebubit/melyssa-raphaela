@@ -6,3 +6,8 @@ assets/hero-vertical-bkp.mp4
 .DS_Store
 **/.DS_Store
 assets/hero-full-bkp.mp4
+
+# PDFs gerados (grandes) - enviar direto, nao publicar
+*.pdf
+# prints originais
+_prints-originais/
