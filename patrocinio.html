@@ -63,6 +63,24 @@ nav .nlinks a{transition:.25s}nav .nlinks a:hover,nav .nlinks a.on{color:var(--m
 .member:hover .info{transform:translateY(0)}
 @media(hover:none){.member img{filter:none}}
 
+/* seção O Produtor */
+.producer{padding:96px 0 40px;position:relative;z-index:1}
+.producer .head{text-align:center;margin-bottom:44px}
+.producer .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.producer h2{font-size:clamp(28px,4.4vw,52px);text-transform:uppercase}
+.pgrid2{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:center}
+@media(max-width:820px){.pgrid2{grid-template-columns:1fr;gap:28px}}
+.pphoto{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;border:1px solid rgba(255,45,135,.22);box-shadow:0 30px 80px -34px rgba(0,0,0,.85)}
+.pphoto img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+.pphoto .ring{position:absolute;inset:0;border:1px solid rgba(255,45,135,.35);border-radius:20px;z-index:2;pointer-events:none}
+.ptext p{color:var(--muted);line-height:1.85;font-size:clamp(15px,1.9vw,17px);margin-bottom:16px}
+.ptext p .em{color:#fff;font-weight:600}
+.ptext .credit{display:inline-flex;align-items:center;gap:9px;margin-top:8px;padding:11px 20px;border-radius:100px;border:1px solid rgba(255,45,135,.4);color:var(--ink);font-size:14px;font-weight:600;transition:.25s}
+.ptext .credit:hover{border-color:var(--magenta);color:var(--magenta);transform:translateY(-2px)}
+.pstudio{margin-top:44px;position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,45,135,.2);box-shadow:0 30px 80px -40px rgba(0,0,0,.85);background:#000}
+.pstudio video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.pstudio .plabel{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;font-size:13px;color:#f3e6ee;background:linear-gradient(transparent,rgba(8,6,12,.85));z-index:2;pointer-events:none}
+
 /* faixa animada (marquee) dos níveis */
 .ribbon{position:relative;z-index:1;overflow:hidden}
 .ribbon .rrow{display:flex;overflow:hidden;white-space:nowrap}
@@ -97,6 +115,13 @@ nav .nlinks a{transition:.25s}nav .nlinks a:hover,nav .nlinks a.on{color:var(--m
 .slot.empty:hover{border-color:rgba(255,45,135,.5)}
 .slot.empty .plus{font-size:26px;color:var(--magenta);font-weight:300;line-height:1}
 .slot.empty .etxt{font-size:12px;letter-spacing:.08em}
+/* tier Master: dourado premium */
+.slot.master{background:radial-gradient(circle at 50% 0,rgba(230,189,79,.13),var(--bg2) 70%);border-color:rgba(230,189,79,.5);box-shadow:0 20px 50px -34px rgba(230,189,79,.5)}
+.slot.master:hover{border-color:#e6bd4f;box-shadow:0 22px 54px -28px rgba(230,189,79,.65)}
+.slot.master .stag{color:#e6bd4f}
+.slot .slogo{line-height:1.05}
+.slot .ssub{font-size:12px;color:var(--magenta);opacity:.85}
+.slot.master .ssub{color:#e6bd4f}
 
 /* notas musicais caindo (camada sutil na frente) */
 #notes{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
@@ -251,6 +276,27 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
   </div>
 </section>
 
+<section class="producer" id="produtor">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">O produtor</div>
+      <h2 class="display">Quem apostou na voz dela</h2>
+    </div>
+    <div class="pgrid2 reveal">
+      <div class="pphoto"><div class="ring"></div><img src="assets/produtor.jpg" alt="Produtor musical da Melyssa no estúdio"></div>
+      <div class="ptext">
+        <p>Toda artista tem um momento em que alguém acredita nela antes do mundo acreditar. Pra Melyssa, esse momento aconteceu dentro de um estúdio.</p>
+        <p>Foi ali, entre teclas, microfones e madrugadas de trabalho, que o <span class="em">Barão</span> enxergou o que muita gente ainda não tinha percebido: <span class="em">uma voz pronta pra ir longe.</span> Ele abriu as portas do estúdio, deu forma aos sonhos dela e transformou vontade em música de verdade.</p>
+        <p>Por trás de cada canção que a Melyssa grava, tem o cuidado, a paciência e a fé do Barão no talento dela. Acreditar numa artista no começo é o tipo de coisa que muda uma história inteira.</p>
+        <a class="credit" href="https://instagram.com/lucasbaraostudio" target="_blank" rel="noopener">Lucas Barão Studio · @lucasbaraostudio →</a>
+      </div>
+    </div>
+    <div class="pstudio reveal">
+      <video id="studioVideo" controls playsinline preload="none" poster="assets/studio-poster.jpg" src="assets/studio.mp4"></video>
+    </div>
+  </div>
+</section>
+
 <section class="help">
   <div class="wrap">
     <div class="head reveal">
@@ -352,14 +398,30 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
       <p class="lead">A caminhada já começou. Estas são as marcas que decidiram entrar na história da Melyssa desde cedo. O próximo nome aqui pode ser o seu.</p>
     </div>
     <div class="slots reveal">
-      <a class="slot filled" href="https://zebubit.com.br" target="_blank" rel="noopener">
-        <div class="stag">Patrocinador oficial</div>
-        <div class="slogo">ZEBUBIT</div>
-        <div class="ssub">Assessoria &amp; Tecnologia</div>
+      <a class="slot master filled" href="https://instagram.com/lsmixproducoes" target="_blank" rel="noopener" aria-label="LS Mix Produções no Instagram">
+        <div class="stag">Master</div>
+        <div class="slogo">LS MIX</div>
+        <div class="ssub">@lsmixproducoes</div>
       </a>
-      <a class="slot empty" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ser%20um%20dos%20patrocinadores%20dela." target="_blank" rel="noopener">
-        <div class="plus">+</div>
-        <div class="etxt">Seu nome aqui</div>
+      <a class="slot master filled" href="https://instagram.com/dramariaraquelribeirooficial" target="_blank" rel="noopener" aria-label="Dra. Maria Raquel Ribeiro no Instagram">
+        <div class="stag">Master</div>
+        <div class="slogo">DRA. MARIA RAQUEL</div>
+        <div class="ssub">@dramariaraquelribeirooficial</div>
+      </a>
+      <a class="slot master filled" href="https://instagram.com/nutricionista.monalisafelix" target="_blank" rel="noopener" aria-label="Nutricionista Monalisa Félix no Instagram">
+        <div class="stag">Master</div>
+        <div class="slogo">MONALISA FÉLIX</div>
+        <div class="ssub">@nutricionista.monalisafelix</div>
+      </a>
+      <a class="slot master filled" href="https://instagram.com/drgeorgecalapodopulos" target="_blank" rel="noopener" aria-label="Dr. George Calapodopulos no Instagram">
+        <div class="stag">Master</div>
+        <div class="slogo">DR. GEORGE</div>
+        <div class="ssub">@drgeorgecalapodopulos</div>
+      </a>
+      <a class="slot filled" href="https://instagram.com/dionefol" target="_blank" rel="noopener" aria-label="Zebubit (Dione Folador) no Instagram">
+        <div class="stag">Patrocinador</div>
+        <div class="slogo">ZEBUBIT</div>
+        <div class="ssub">@dionefol</div>
       </a>
       <a class="slot empty" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ser%20um%20dos%20patrocinadores%20dela." target="_blank" rel="noopener">
         <div class="plus">+</div>
@@ -392,6 +454,10 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* pausa a música ao dar play no vídeo do estúdio */
+(function(){var v=document.getElementById('studioVideo');if(!v)return;
+v.addEventListener('play',function(){var a=document.getElementById('audio');if(a&&!a.paused){a.pause();var m=document.getElementById('music');if(m)m.classList.remove('playing');}});})();
 
 /* notas musicais caindo */
 (function(){
