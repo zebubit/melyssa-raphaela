@@ -232,7 +232,7 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
 </footer>
 
 <div id="music" title="Tocar música" role="button" tabindex="0" aria-label="Tocar ou pausar a música"><div class="bars"><i></i><i></i><i></i><i></i></div></div>
-<audio id="audio" src="assets/musica.mp3" loop preload="auto"></audio>
+<audio id="audio" src="assets/musica.mp3" loop preload="none"></audio>
 
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
