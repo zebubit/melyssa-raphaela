@@ -67,11 +67,19 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
 .chead,.letter,.ccta,nav,footer{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){#notes{display:none}}
 @media print{
-  nav,#notes,.ccta .row{display:none!important}
+  nav,#music,#notes,.ccta .row{display:none!important}
   body{background:#08060c!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .reveal{opacity:1!important;transform:none!important}
   .chead{padding-top:40px}
 }
+
+#music{position:fixed;right:18px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;background:rgba(255,45,135,.16);border:1px solid rgba(255,45,135,.4);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;transition:.25s}
+#music:hover{background:rgba(255,45,135,.3)}
+#music .bars{display:flex;gap:2.5px;align-items:flex-end;height:16px}
+#music .bars i{width:2.5px;background:var(--magenta);height:5px;border-radius:2px}
+#music.playing .bars i{animation:eq .9s ease-in-out infinite}
+#music.playing .bars i:nth-child(2){animation-delay:.2s}#music.playing .bars i:nth-child(3){animation-delay:.4s}#music.playing .bars i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
 </style>
 </head>
 <body>
@@ -160,5 +168,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
 })();
 </script>
+<div id="music" title="Tocar música" role="button" tabindex="0" aria-label="Tocar ou pausar a música"><div class="bars"><i></i><i></i><i></i><i></i></div></div>
+<audio id="audio" src="assets/musica.mp3" loop preload="none"></audio>
+<script src="premium.js"></script>
+<script src="player.js"></script>
 </body>
 </html>

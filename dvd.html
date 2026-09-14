@@ -86,7 +86,7 @@ nav .nlinks a{transition:.25s}nav .nlinks a:hover,nav .nlinks a.on{color:var(--m
 .help .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
 .help h2{font-size:clamp(28px,4.4vw,50px);text-transform:uppercase}
 .help .lead{color:var(--muted);max-width:52ch;margin:14px auto 0;text-align:center;line-height:1.7;font-size:15px}
-.hgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.hgrid{grid-template-columns:1fr}}
 .hcard{padding:30px 24px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);border:1px solid rgba(255,255,255,.08);transition:.3s}
@@ -162,6 +162,14 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
 #notes .note{position:absolute;top:-8%;color:var(--magenta);opacity:0;font-size:22px;will-change:transform,opacity;animation:fall linear infinite;text-shadow:0 0 10px rgba(255,45,135,.55)}
 @keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:0}12%{opacity:.34}88%{opacity:.34}100%{transform:translateY(108vh) rotate(320deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){#notes{display:none}}
+
+#music{position:fixed;right:18px;bottom:18px;z-index:90;width:48px;height:48px;border-radius:50%;background:rgba(255,45,135,.16);border:1px solid rgba(255,45,135,.4);backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;transition:.25s}
+#music:hover{background:rgba(255,45,135,.3)}
+#music .bars{display:flex;gap:2.5px;align-items:flex-end;height:16px}
+#music .bars i{width:2.5px;background:var(--magenta);height:5px;border-radius:2px}
+#music.playing .bars i{animation:eq .9s ease-in-out infinite}
+#music.playing .bars i:nth-child(2){animation-delay:.2s}#music.playing .bars i:nth-child(3){animation-delay:.4s}#music.playing .bars i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
 </style>
 </head>
 <body>
@@ -216,8 +224,8 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
       <div class="eyebrow">Meta da campanha</div>
       <div class="amount">R$ 0 <span>captados</span></div>
       <div class="bar"><i style="width:0%"></i></div>
-      <div class="note">de uma meta de R$ [valor a definir] pra cobrir a gravação completa</div>
-      <div class="footnote">Valor final em fechamento com o estúdio. Assim que o orçamento real estiver pronto, esse número é atualizado aqui.</div>
+      <div class="note">de uma meta de R$ 40.000 pra cobrir a gravação completa</div>
+      <div class="footnote">Campanha recém-lançada. Seja um dos primeiros a apoiar — cada contribuição aparece aqui assim que confirmada.</div>
     </div>
   </div>
 </section>
@@ -255,7 +263,7 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
     <div class="head reveal">
       <div class="eyebrow">Pra onde vai o investimento</div>
       <h2 class="display">Como o DVD é feito</h2>
-      <p class="lead">Cada parte tem um custo real. Valores abaixo são estimativas de mercado pra um DVD ao vivo regional, e serão ajustados com o orçamento fechado do estúdio.</p>
+      <p class="lead">Cada parte tem um custo real. Valores abaixo são estimativas de mercado, incluindo uma margem pra imprevistos, e serão ajustados com os orçamentos fechados.</p>
     </div>
     <div class="hgrid reveal">
       <div class="hcard">
@@ -281,6 +289,18 @@ footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
         <h3>Edição e masterização</h3>
         <div class="val">~R$ 2.000 a 4.000</div>
         <p>Edição do vídeo, mixagem e masterização do áudio pra ficar pronto pra lançar.</p>
+      </div>
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M7 14v4a2 2 0 0 0 2 2h1v-5"/></svg></div>
+        <h3>Divulgação</h3>
+        <div class="val">~R$ 3.000 a 5.000</div>
+        <p>Artes, teaser, impulsionamento nas redes e assessoria de imprensa pro lançamento.</p>
+      </div>
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.9L21 9l-5.5 4.5L17 21l-5-3.8L7 21l1.5-7.5L3 9l6.6-.1z"/></svg></div>
+        <h3>Lançamento e imprevistos</h3>
+        <div class="val">~R$ 4.000 a 8.000</div>
+        <p>Evento de lançamento, estrutura extra e margem de segurança pra imprevistos.</p>
       </div>
     </div>
   </div>
@@ -476,6 +496,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   });
 })();
 </script>
+<div id="music" title="Tocar música" role="button" tabindex="0" aria-label="Tocar ou pausar a música"><div class="bars"><i></i><i></i><i></i><i></i></div></div>
+<audio id="audio" src="assets/musica.mp3" loop preload="none"></audio>
 <script src="premium.js"></script>
+<script src="player.js"></script>
 </body>
 </html>
