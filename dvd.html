@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajude a gravar o DVD · Melyssa Raphaela</title>
+<meta name="description" content="Melyssa Raphaela está construindo seu primeiro DVD e precisa de apoio pra tirar isso do papel. Conheça o projeto e as formas de ajudar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="premium.css">
+<style>
+:root{--bg:#08060c;--bg2:#0d0a14;--ink:#f5eef3;--muted:#d2c8cf;--magenta:#ff2d87;--magenta-deep:#c2126b;--gold:#e6bd4f;--glow:rgba(255,45,135,.55);--maxw:1180px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+.display{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.02em}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(8,6,12,.6);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:18px}nav .logo b{color:var(--magenta)}
+nav .nlinks{display:flex;gap:20px;font-size:13px;font-weight:500;color:var(--muted)}
+nav .nlinks a{transition:.25s}nav .nlinks a:hover,nav .nlinks a.on{color:var(--magenta)}nav .nlinks a.hot{color:var(--magenta);position:relative}nav .nlinks a.hot::after{content:"";position:absolute;right:-9px;top:1px;width:6px;height:6px;border-radius:50%;background:var(--magenta);box-shadow:0 0 6px 2px rgba(255,45,135,.6);animation:navDot 1.4s ease-in-out infinite}@keyframes navDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.55)}}@media(prefers-reduced-motion:reduce){nav .nlinks a.hot::after{animation:none}}
+@media(max-width:680px){nav{flex-wrap:wrap;padding:12px 16px}nav .nlinks{width:100%;justify-content:center;gap:8px 14px;font-size:12px;flex-wrap:wrap;margin-top:8px}}
+
+/* hero cinematográfico */
+.phero{position:relative;min-height:92vh;min-height:92dvh;display:flex;align-items:flex-end;overflow:hidden}
+.phero-bg{position:absolute;inset:0;background:url('assets/studio-poster.jpg') center 38%/cover no-repeat;transform:scale(1.08);animation:kenburns 24s ease-in-out infinite alternate;will-change:transform}
+.phero-bg video{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
+@keyframes kenburns{0%{transform:scale(1.08) translate(0,0)}100%{transform:scale(1.17) translate(-1.6%,-1.4%)}}
+.phero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,6,12,.55) 0%,rgba(8,6,12,.14) 30%,rgba(8,6,12,.76) 72%,var(--bg) 100%),radial-gradient(92% 62% at 74% 18%,rgba(255,45,135,.16),transparent 60%)}
+.phero .glow{position:absolute;left:62%;top:24%;width:70vw;height:70vw;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--glow),transparent 60%);opacity:.35;filter:blur(60px);z-index:1}
+.phero-inner{position:relative;z-index:4;width:100%;padding-bottom:9vh}
+.phero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:18px}
+.phero .eyebrow::before{content:"";width:28px;height:1px;background:var(--magenta)}
+.phero h1{font-size:clamp(40px,7.6vw,96px);text-transform:uppercase;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.phero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--magenta)}
+.phero .sub{color:#efe6ec;max-width:56ch;margin:24px 0 0;font-size:clamp(15px,2vw,18px);line-height:1.7;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.phero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.phero-bg{animation:none}}
+
+/* por que um DVD agora */
+.why{padding:96px 0 40px}
+.why .grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+@media(max-width:820px){.why .grid{grid-template-columns:1fr;gap:30px}}
+.why .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:18px}
+.why h2{font-size:clamp(28px,4.4vw,50px);text-transform:uppercase;margin-bottom:20px}
+.why h2 em{font-style:normal;color:var(--magenta)}
+.why p{color:var(--muted);line-height:1.85;font-size:17px;margin-bottom:15px;max-width:52ch}
+.why .photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 80px -30px rgba(0,0,0,.85)}
+.why .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.why .photo .ring{position:absolute;inset:0;border:1px solid rgba(255,45,135,.4);border-radius:22px;z-index:2}
+
+/* meta */
+.goal{padding:70px 0}
+.goal .box{max-width:820px;margin:0 auto;padding:48px 40px;border-radius:28px;background:radial-gradient(circle at 50% 0,rgba(255,45,135,.14),var(--bg2) 70%);border:1px solid rgba(255,45,135,.3);text-align:center}
+.goal .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:16px}
+.goal .amount{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(38px,7vw,64px);color:#fff}
+.goal .amount span{color:var(--magenta)}
+.goal .bar{height:10px;border-radius:100px;background:rgba(255,255,255,.08);margin:22px 0 14px;overflow:hidden}
+.goal .bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--magenta-deep),var(--magenta));border-radius:100px}
+.goal .note{font-size:13px;color:var(--muted)}
+.goal .footnote{margin-top:18px;font-size:12px;color:#8a7d88}
+
+/* contribuição rápida */
+.quick{padding:20px 0 60px}
+.quick .qbox{max-width:820px;margin:0 auto;padding:44px 40px;border-radius:28px;background:var(--bg2);border:1px solid rgba(255,255,255,.09);text-align:center}
+.quick .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.quick h2{font-size:clamp(26px,4vw,42px);text-transform:uppercase;margin-bottom:10px}
+.quick .lead{color:var(--muted);max-width:46ch;margin:0 auto 32px;line-height:1.7;font-size:15px}
+.qgrid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.qval{padding:16px 26px;border-radius:100px;border:1px solid rgba(255,45,135,.35);background:rgba(255,45,135,.08);color:var(--ink);font-family:'Bricolage Grotesque';font-weight:700;font-size:17px;cursor:pointer;transition:.2s}
+.qval:hover,.qval:focus-visible{background:var(--magenta);border-color:var(--magenta);transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--glow)}
+.qcustom{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center;max-width:420px;margin:0 auto}
+.qcustom .qprefix{font-family:'Bricolage Grotesque';font-weight:700;color:var(--muted)}
+.qcustom input{flex:1;min-width:120px;padding:14px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.18);background:var(--bg);color:var(--ink);font-family:'Inter';font-size:15px}
+.qcustom input:focus{outline:none;border-color:var(--magenta)}
+.qcustom input::placeholder{color:#8a7d88}
+.qresult{margin-top:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08)}
+.qcode{font-family:'Inter',monospace;font-size:12px;word-break:break-all;color:var(--muted);background:var(--bg);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px;margin-bottom:16px;text-align:left}
+.qhelp{font-size:12px;color:#8a7d88;margin-top:12px}
+
+/* pra onde vai o investimento */
+.help{padding:70px 0 40px}
+.help .head{text-align:center;margin-bottom:50px}
+.help .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.help h2{font-size:clamp(28px,4.4vw,50px);text-transform:uppercase}
+.help .lead{color:var(--muted);max-width:52ch;margin:14px auto 0;text-align:center;line-height:1.7;font-size:15px}
+.hgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.hgrid{grid-template-columns:1fr}}
+.hcard{padding:30px 24px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);border:1px solid rgba(255,255,255,.08);transition:.3s}
+.hcard:hover{border-color:rgba(255,45,135,.4);transform:translateY(-4px)}
+.hcard .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,45,135,.14);border:1px solid rgba(255,45,135,.4);display:grid;place-items:center;margin-bottom:18px}
+.hcard .ic svg{width:22px;height:22px;stroke:var(--magenta);fill:none;stroke-width:1.8}
+.hcard h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:18px;margin-bottom:8px}
+.hcard .val{font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:var(--magenta);margin-bottom:8px}
+.hcard p{color:var(--muted);font-size:13px;line-height:1.6}
+
+/* planos */
+.plans{padding:70px 0 40px}
+.plans .head{text-align:center;margin-bottom:50px}
+.plans .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.plans h2{font-size:clamp(28px,4.4vw,50px);text-transform:uppercase}
+.plans .lead{color:var(--muted);max-width:52ch;margin:14px auto 0;line-height:1.7;text-align:center}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+@media(max-width:820px){.pgrid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+.plan{position:relative;padding:38px 28px;border-radius:24px;background:var(--bg2);border:1px solid rgba(255,255,255,.09);display:flex;flex-direction:column}
+.plan.feat{border-color:var(--magenta);background:radial-gradient(circle at 50% 0,rgba(255,45,135,.12),var(--bg2) 60%);box-shadow:0 30px 80px -40px var(--glow)}
+.plan.master{border-color:var(--gold);background:radial-gradient(circle at 50% 0,rgba(230,189,79,.13),var(--bg2) 60%);box-shadow:0 30px 80px -40px rgba(230,189,79,.4)}
+.plan .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--magenta);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+.plan .tier{font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;text-transform:uppercase;margin-bottom:6px}
+.plan .tier.m{color:var(--magenta)}
+.plan .tier.g{color:var(--gold)}
+.plan .desc{color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:22px;min-height:44px}
+.plan ul{list-style:none;margin-bottom:26px;flex:1}
+.plan li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:14px;line-height:1.5;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.plan li svg{flex:none;width:18px;height:18px;stroke:var(--magenta);fill:none;stroke-width:2;margin-top:1px}
+.plan.master li svg{stroke:var(--gold)}
+.plan .btn{width:100%;justify-content:center}
+
+/* patrocinadores do DVD (vazio, pronto pra preencher) */
+.sponsors{padding:60px 0 40px;text-align:center}
+.sponsors .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);font-weight:600;margin-bottom:14px}
+.sponsors h2{font-size:clamp(26px,4vw,44px);text-transform:uppercase;margin-bottom:12px}
+.sponsors .lead{color:var(--muted);max-width:52ch;margin:0 auto 40px;line-height:1.7;font-size:15px}
+.slots{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;align-items:stretch}
+.slot{width:230px;min-height:118px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:22px;transition:.3s}
+.slot.empty{background:transparent;border:1px dashed rgba(255,255,255,.18);color:var(--muted)}
+.slot.empty:hover{border-color:rgba(255,45,135,.5)}
+.slot.empty .plus{font-size:26px;color:var(--magenta);font-weight:300;line-height:1}
+.slot.empty .etxt{font-size:12px;letter-spacing:.08em;text-align:center}
+
+/* rifa (em construção) */
+.raffle{padding:40px 0 90px}
+.raffle .box{max-width:900px;margin:0 auto;padding:44px 40px;border-radius:26px;border:1px dashed rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.raffle .ic{width:56px;height:56px;border-radius:16px;background:rgba(255,45,135,.14);border:1px solid rgba(255,45,135,.4);display:grid;place-items:center;flex:none}
+.raffle .ic svg{width:28px;height:28px;stroke:var(--magenta);fill:none;stroke-width:1.6}
+.raffle .txt{flex:1;min-width:240px}
+.raffle .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--magenta);font-weight:700;margin-bottom:8px}
+.raffle h3{font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;text-transform:uppercase;margin-bottom:8px}
+.raffle p{color:var(--muted);font-size:14px;line-height:1.7}
+
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;font-family:inherit;cursor:pointer;transition:transform .2s,box-shadow .3s,border-color .3s,color .3s;border:1px solid transparent;background:transparent;appearance:none}
+.btn-pri{background:var(--magenta);color:#fff;box-shadow:0 8px 30px -8px var(--glow)}.btn-pri:hover{transform:translateY(-2px);box-shadow:0 14px 44px -8px var(--glow)}
+.btn-gho{border-color:rgba(255,255,255,.22);color:var(--ink)}.btn-gho:hover{border-color:var(--magenta);color:var(--magenta)}
+
+/* cta final */
+.pcta{padding:20px 0 120px;text-align:center}
+.pcta .box{max-width:820px;margin:0 auto;padding:60px 32px;border-radius:28px;background:radial-gradient(circle at 50% 0,rgba(255,45,135,.16),transparent 65%);border:1px solid rgba(255,45,135,.3)}
+.pcta h2{font-size:clamp(28px,4.6vw,52px);text-transform:uppercase;margin-bottom:16px}
+.pcta h2 span{color:var(--magenta)}
+.pcta p{color:var(--muted);max-width:46ch;margin:0 auto 30px;line-height:1.75}
+.pcta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{padding:50px 0;border-top:1px solid rgba(255,255,255,.07);text-align:center}
+footer .copy{font-size:12px;color:#6b5f6a}footer .copy a{color:var(--magenta)}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+#notes{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+#notes .note{position:absolute;top:-8%;color:var(--magenta);opacity:0;font-size:22px;will-change:transform,opacity;animation:fall linear infinite;text-shadow:0 0 10px rgba(255,45,135,.55)}
+@keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:0}12%{opacity:.34}88%{opacity:.34}100%{transform:translateY(108vh) rotate(320deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){#notes{display:none}}
+</style>
+</head>
+<body>
+
+<div id="notes" aria-hidden="true"></div>
+
+<nav>
+  <a class="logo" href="index.html">MELYSSA<b>.</b></a>
+  <div class="nlinks">
+    <a href="index.html">Início</a>
+    <a href="historia.html">A História</a>
+    <a href="projeto.html">O Projeto</a>
+    <a href="patrocinio.html">Patrocínio</a>
+    <a href="dvd.html" class="on hot">O DVD</a>
+    <a href="index.html#contato">Contato</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="phero-bg"><video autoplay muted loop playsinline poster="assets/studio-poster.jpg" src="assets/studio.mp4"></video></div>
+  <div class="phero-scrim"></div>
+  <div class="glow"></div>
+  <div class="wrap phero-inner">
+    <span class="eyebrow">Um sonho em produção</span>
+    <h1 class="display">Gravar o<br><em>primeiro DVD</em></h1>
+    <p class="sub">A Melyssa quer registrar esse momento da carreira dela num DVD ao vivo, com banda completa e qualidade profissional. É um passo grande, e ela não consegue dar sozinha. Esse é o convite pra fazer parte disso.</p>
+    <div class="cta">
+      <a class="btn btn-pri" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ajudar%20a%20tornar%20o%20DVD%20dela%20realidade.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener">Quero ajudar a realizar</a>
+      <a class="btn btn-gho" href="carta-dvd.html">Ler a carta</a>
+    </div>
+  </div>
+</header>
+
+<section class="why">
+  <div class="wrap grid">
+    <div class="reveal">
+      <div class="eyebrow">Por que agora</div>
+      <h2 class="display">Um <em>registro</em> que fica</h2>
+      <p>Um DVD não é só um vídeo bonito. É o cartão de visitas que abre porta de casa de show, de prefeitura, de contratante que nunca viu a Melyssa ao vivo. É o que separa "uma cantora local" de "uma artista com material profissional pra mostrar".</p>
+      <p>Ela já tem a banda, já tem o repertório, já tem o produtor que acredita nela desde o começo. Falta a estrutura pra registrar tudo isso do jeito que merece: câmeras, iluminação, captação de áudio ao vivo e edição profissional.</p>
+    </div>
+    <div class="reveal photo">
+      <div class="ring"></div>
+      <img src="assets/melyssa-crescendo.jpg" alt="Melyssa Raphaela cantando">
+    </div>
+  </div>
+</section>
+
+<section class="goal">
+  <div class="wrap">
+    <div class="box reveal">
+      <div class="eyebrow">Meta da campanha</div>
+      <div class="amount">R$ 0 <span>captados</span></div>
+      <div class="bar"><i style="width:0%"></i></div>
+      <div class="note">de uma meta de R$ [valor a definir] pra cobrir a gravação completa</div>
+      <div class="footnote">Valor final em fechamento com o estúdio. Assim que o orçamento real estiver pronto, esse número é atualizado aqui.</div>
+    </div>
+  </div>
+</section>
+
+<section class="quick">
+  <div class="wrap">
+    <div class="qbox reveal">
+      <div class="eyebrow">Contribua agora</div>
+      <h2 class="display">Escolha um valor</h2>
+      <p class="lead">Clique num valor, copie o código Pix gerado e cole no seu banco. Cai direto pra Melyssa, sem intermediário.</p>
+      <div class="qgrid">
+        <button class="qval" data-v="5">R$ 5</button>
+        <button class="qval" data-v="10">R$ 10</button>
+        <button class="qval" data-v="20">R$ 20</button>
+        <button class="qval" data-v="30">R$ 30</button>
+        <button class="qval" data-v="50">R$ 50</button>
+        <button class="qval" data-v="100">R$ 100</button>
+      </div>
+      <div class="qcustom">
+        <span class="qprefix">R$</span>
+        <input type="number" id="qcustom-input" placeholder="Outro valor" min="1" step="1" inputmode="decimal">
+        <button class="btn btn-pri" id="qcustom-btn" type="button">Gerar Pix</button>
+      </div>
+      <div class="qresult" id="qresult" hidden>
+        <div class="qcode" id="qcode"></div>
+        <button class="btn btn-gho" id="qcopy" type="button">Copiar código Pix</button>
+        <p class="qhelp">Abra o app do seu banco, escolha "Pix Copia e Cola" e cole o código.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="help">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Pra onde vai o investimento</div>
+      <h2 class="display">Como o DVD é feito</h2>
+      <p class="lead">Cada parte tem um custo real. Valores abaixo são estimativas de mercado pra um DVD ao vivo regional, e serão ajustados com o orçamento fechado do estúdio.</p>
+    </div>
+    <div class="hgrid reveal">
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v10.5"/><circle cx="9" cy="16" r="3"/><path d="M12 3l7 2"/></svg></div>
+        <h3>Estúdio e captação</h3>
+        <div class="val">~R$ 4.000 a 7.000</div>
+        <p>Aluguel do espaço, equipe técnica e captação de áudio ao vivo com qualidade de gravadora.</p>
+      </div>
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3>Banda completa</h3>
+        <div class="val">~R$ 2.000 a 4.000</div>
+        <p>Cachê dos músicos e ensaios extras pra apresentação estar redonda na hora de gravar.</p>
+      </div>
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="15" height="12" rx="2"/><path d="M17 10l5-3v10l-5-3"/></svg></div>
+        <h3>Filmagem multicâmera</h3>
+        <div class="val">~R$ 3.000 a 6.000</div>
+        <p>Equipe de vídeo com várias câmeras, iluminação de palco e direção de cena.</p>
+      </div>
+      <div class="hcard">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4"/></svg></div>
+        <h3>Edição e masterização</h3>
+        <div class="val">~R$ 2.000 a 4.000</div>
+        <p>Edição do vídeo, mixagem e masterização do áudio pra ficar pronto pra lançar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Formas de ajudar</div>
+      <h2 class="display">Escolha como entrar nessa</h2>
+      <p class="lead">Do apoio pontual à parceria de marca no lançamento. Toda ajuda passa pela assessoria, com transparência sobre pra onde vai.</p>
+    </div>
+    <div class="pgrid reveal">
+
+      <div class="plan">
+        <div class="tier">Apoiador do DVD</div>
+        <div class="desc">Pra quem quer contribuir com o que puder e fazer parte da torcida.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Contribuição do seu jeito, via PIX ou combinado</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Nome nos agradecimentos do encarte</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Contato direto com a assessoria</li>
+        </ul>
+        <a class="btn btn-gho" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela.%20Quero%20ser%20apoiador%20do%20DVD%20dela." target="_blank" rel="noopener">Quero ajudar</a>
+      </div>
+
+      <div class="plan feat">
+        <div class="badge">Mais impacto</div>
+        <div class="tier m">Patrocinador do DVD</div>
+        <div class="desc">Pra marcas locais que querem aparecer no lançamento e ganhar visibilidade.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Sua marca nos créditos do vídeo</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Menção nos stories de divulgação</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Presença no evento de lançamento</li>
+        </ul>
+        <a class="btn btn-pri" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela.%20Tenho%20interesse%20em%20patrocinar%20o%20DVD%20dela.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener">Quero patrocinar</a>
+      </div>
+
+      <div class="plan master">
+        <div class="tier g">Padrinho do DVD</div>
+        <div class="desc">Parceria completa, com destaque máximo e exclusividade no projeto.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Logo na capa digital do DVD</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Participação especial no lançamento</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Condições combinadas caso a caso</li>
+        </ul>
+        <a class="btn btn-gho" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela.%20Quero%20conversar%20sobre%20ser%20padrinho%20do%20DVD%20dela." target="_blank" rel="noopener">Falar sobre parceria</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sponsors">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Quem já entrou</div>
+      <h2 class="display">Patrocinadores do DVD</h2>
+      <p class="lead">Essa lista começa vazia de propósito. O primeiro nome aqui pode ser o seu.</p>
+    </div>
+    <div class="slots reveal">
+      <a class="slot empty" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ser%20o%20primeiro%20patrocinador%20do%20DVD%20dela." target="_blank" rel="noopener">
+        <div class="plus">+</div>
+        <div class="etxt">Seja o primeiro</div>
+      </a>
+      <a class="slot empty" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ser%20patrocinador%20do%20DVD%20dela." target="_blank" rel="noopener">
+        <div class="plus">+</div>
+        <div class="etxt">Seu nome aqui</div>
+      </a>
+      <a class="slot empty" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ser%20patrocinador%20do%20DVD%20dela." target="_blank" rel="noopener">
+        <div class="plus">+</div>
+        <div class="etxt">Seu nome aqui</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="raffle">
+  <div class="wrap">
+    <div class="box reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div class="txt">
+        <div class="tag">Em construção</div>
+        <h3>Rifa solidária</h3>
+        <p>Além do patrocínio, a ideia é fazer uma rifa com prêmio doado por algum apoiador, sem custo pra Melyssa e com visibilidade pra quem doar o prêmio. Assim que tiver um prêmio confirmado, essa seção ganha os números e as regras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <div class="box reveal">
+      <h2 class="display">Vamos tirar esse <span>DVD do papel?</span></h2>
+      <p>Fale com a assessoria, entenda os formatos de apoio e ajude a Melyssa a registrar esse momento da carreira dela.</p>
+      <div class="row">
+        <a class="btn btn-pri" href="https://wa.me/5534988534849?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Melyssa%20Raphaela%20e%20quero%20ajudar%20a%20tornar%20o%20DVD%20dela%20realidade.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener">Falar com a assessoria</a>
+        <a class="btn btn-gho" href="carta-dvd.html">Ler a carta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap copy">Desenvolvido por <a href="https://zebubit.com.br" target="_blank" rel="noopener">Zebubit Assessoria</a></div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+(function(){
+  var v=document.querySelector('.phero-bg video'); if(!v) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) v.pause();
+})();
+
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var box=document.getElementById('notes'); if(!box) return;
+  var glyphs=['♪','♫','♩','♬'], N=window.innerWidth<680?11:20;
+  for(var i=0;i<N;i++){
+    var s=document.createElement('span'); s.className='note'; s.textContent=glyphs[i%glyphs.length];
+    s.style.left=(Math.random()*100)+'%';
+    s.style.fontSize=(16+Math.random()*18)+'px';
+    s.style.animationDuration=(9+Math.random()*9)+'s';
+    s.style.animationDelay=(-Math.random()*14)+'s';
+    s.style.opacity=1; box.appendChild(s);
+  }
+})();
+
+/* Pix Copia e Cola (padrão BR Code do Banco Central, gerado no navegador, sem gateway) */
+(function(){
+  // ⚠️ PLACEHOLDER — trocar pelos dados reais antes de publicar. Sem isso o código gerado não é válido.
+  var PIX_KEY  = 'CHAVE_PIX_AQUI';       // CPF, telefone, e-mail ou chave aleatória cadastrada no banco
+  var PIX_NAME = 'NOME DO RECEBEDOR';    // exatamente como está na conta (máx. 25 caracteres)
+  var PIX_CITY = 'CIDADE';               // cidade da conta (máx. 15 caracteres)
+
+  function stripAccents(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function tlv(id,value){ var len=String(value.length).padStart(2,'0'); return id+len+value; }
+
+  function crc16(str){
+    var crc = 0xFFFF;
+    for (var i=0;i<str.length;i++){
+      crc ^= (str.charCodeAt(i) << 8);
+      for (var j=0;j<8;j++){
+        crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) & 0xFFFF : (crc << 1) & 0xFFFF;
+      }
+    }
+    return crc.toString(16).toUpperCase().padStart(4,'0');
+  }
+
+  function buildPixPayload(amount){
+    var name = stripAccents(PIX_NAME).toUpperCase().slice(0,25);
+    var city = stripAccents(PIX_CITY).toUpperCase().slice(0,15);
+    var mai = tlv('00','br.gov.bcb.pix') + tlv('01', PIX_KEY);
+    var adf = tlv('05','DVDMELYSSA');
+    var payload =
+      tlv('00','01') +
+      tlv('26', mai) +
+      tlv('52','0000') +
+      tlv('53','986') +
+      tlv('54', Number(amount).toFixed(2)) +
+      tlv('58','BR') +
+      tlv('59', name) +
+      tlv('60', city) +
+      tlv('62', adf) +
+      '6304';
+    return payload + crc16(payload);
+  }
+
+  var result=document.getElementById('qresult'), codeEl=document.getElementById('qcode'), copyBtn=document.getElementById('qcopy');
+  function showCode(amount){
+    if(PIX_KEY==='CHAVE_PIX_AQUI'){
+      codeEl.textContent='[Pix ainda não configurado] Assim que a Zebubit inserir a chave Pix real da Melyssa aqui no código, este botão já gera o Pix Copia e Cola de R$ '+Number(amount).toFixed(2).replace('.',',')+' automaticamente.';
+    } else {
+      codeEl.textContent = buildPixPayload(amount);
+    }
+    result.hidden=false;
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  document.querySelectorAll('.qval').forEach(function(btn){
+    btn.addEventListener('click',function(){ showCode(btn.dataset.v); });
+  });
+  document.getElementById('qcustom-btn').addEventListener('click',function(){
+    var v=parseFloat(document.getElementById('qcustom-input').value);
+    if(!v || v<=0){ document.getElementById('qcustom-input').focus(); return; }
+    showCode(v);
+  });
+  copyBtn.addEventListener('click',function(){
+    navigator.clipboard.writeText(codeEl.textContent).then(function(){
+      var orig=copyBtn.textContent; copyBtn.textContent='Copiado!';
+      setTimeout(function(){ copyBtn.textContent=orig; },1800);
+    });
+  });
+})();
+</script>
+<script src="premium.js"></script>
+</body>
+</html>
